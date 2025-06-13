@@ -14,7 +14,9 @@ export function Dashboard() {
                 {visibilityOfModal && (
                     <ModalToCreateCharts />
                 )}
+                <div className={style.containerOfCharts}>
                 
+                </div>
             </main>
         </>
     );

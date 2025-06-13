@@ -1,6 +1,5 @@
 .addChartContainer {
     gap: 10px;
-    margin: 5px;
     display: flex;
     border-radius: 2px;
     align-self: flex-start;
