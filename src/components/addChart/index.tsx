@@ -1,17 +1,20 @@
 import style from './index.module.css';
-import { useState } from 'react';
 import { Label } from './_components/label';
 import { Options } from './_components/options';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store';
+import { toggle } from '../../store/visibilitySlice';
 
 export function AddChart() {
-    const [open, setOpen] = useState<boolean>(false);
+    const visible = useSelector((state: RootState) => state.visibility.visible);
+    const dispatch = useDispatch<AppDispatch>();
 
     return (
-        <div onClick={() => setOpen(!open)} className={style.addChartContainer}>
+        <div onClick={() => dispatch(toggle())} className={style.addChartContainer}>
             <Label />
             <AnimatePresence>
-                {open && (
+                {visible && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
