@@ -1,5 +1,5 @@
-import { AddChart } from "../../components/addChart";
 import style from "./index.module.css";
+import { AddChart } from "../../components/addChart";
 
 export function Dashboard() {
 
