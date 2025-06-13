@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Label } from './_components/label';
 
 export function ChartLine() {
@@ -19,14 +19,16 @@ export function ChartLine() {
     return (
         <div className={style.containerOfChart}>
             <Label />
-            <LineChart width={400} height={200} data={data} margin={{ top: 0, right: 0, bottom: 0, left: -20 }}>
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                <Line type="monotone" dataKey="pv" stroke="green" />
-                <CartesianGrid stroke="#262626" strokeDasharray="5 5" />
-                <XAxis dataKey="name" stroke="#262626" />
-                <YAxis stroke="#262626" />
-                <Tooltip />
-            </LineChart>
+            <ResponsiveContainer width={'100%'} height={200}>
+                <LineChart data={data} margin={{ left: -20 }}>
+                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="pv" stroke="green" />
+                    <CartesianGrid stroke="#262626" strokeDasharray="5 5" />
+                    <XAxis dataKey="name" stroke="#262626" />
+                    <YAxis stroke="#262626" />
+                    <Tooltip />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     )
 }
