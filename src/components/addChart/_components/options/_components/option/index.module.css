@@ -1,9 +1,10 @@
-.option{
-    background: none;
+.option {
+    gap: 15px;
     border: none;
-    color: white;
     display: flex;
+    color: white;
+    background: none;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    margin-left: 10px;
 }

@@ -1,5 +1,5 @@
 .containerOptions {
-    gap: 8px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
 }
