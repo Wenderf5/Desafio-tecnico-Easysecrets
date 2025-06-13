@@ -9,7 +9,7 @@ interface props {
 export function Label({ isOpen, setIsOpen }: props) {
     return (
         <p
-            className={style.LabelText}
+            className={style.label}
             onClick={() => setIsOpen(!isOpen)}
         >
             {isOpen ? <ChevronUp /> : <ChevronDown />}

@@ -1,4 +1,5 @@
 import style from './index.module.css';
+
 interface props {
     icon: React.ReactNode,
     label: string
@@ -6,6 +7,11 @@ interface props {
 
 export function Option({ icon, label }: props) {
     return (
-        <button className={style.option}>{label} {icon}</button>
+        <button
+            className={style.option}
+        >
+            {label}
+            {icon}
+        </button>
     );
 }

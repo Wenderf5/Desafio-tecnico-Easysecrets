@@ -1,12 +1,11 @@
 import style from "./index.module.css";
-import { AddChart } from "../../components/addChart";
+import { AddChartButton } from "../../components/addChartButton";
 
 export function Dashboard() {
-
     return (
         <>
             <main className={style.main}>
-                <AddChart />
+                <AddChartButton />
             </main>
         </>
     );
