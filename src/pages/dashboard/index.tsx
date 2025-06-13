@@ -3,6 +3,7 @@ import { AddChartButton } from "../../components/addChartButton";
 import { ModalToCreateCharts } from "../../components/modalToCreateCharts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { ChartLine } from "../../components/chartLine";
 
 export function Dashboard() {
     const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
@@ -15,7 +16,13 @@ export function Dashboard() {
                     <ModalToCreateCharts />
                 )}
                 <div className={style.containerOfCharts}>
-                
+                    <ChartLine />
+                    <ChartLine />
+                    <ChartLine />
+                    <ChartLine />
+                    <ChartLine />
+                    <ChartLine />
+                    <ChartLine />
                 </div>
             </main>
         </>
