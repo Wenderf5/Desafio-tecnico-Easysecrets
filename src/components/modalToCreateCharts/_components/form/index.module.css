@@ -1,0 +1,34 @@
+.form {
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.containerSubmit {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttonCancel {
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.buttonCreate {
+    border: none;
+    background-color: #52b4fa;
+    color: white;
+    padding: 15px 40px 15px 40px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}

@@ -8,3 +8,17 @@
     background-color: #52b4fa;
     padding: 10px 45px 10px 45px;
 }
+
+.label {
+    gap: 5px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerOptions {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}

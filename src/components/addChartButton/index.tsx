@@ -1,20 +1,26 @@
 import style from './index.module.css';
 import { useState } from 'react';
-import { Label } from './_components/label';
-import { Options } from './_components/options';
+import { Option } from './_components/option';
 import { AnimatePresence, motion } from 'framer-motion';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { AppDispatch, RootState } from '../../store';
-// import { toggle } from '../../store/visibilitySlice';
+import {
+    ChartLine,
+    ChartArea,
+    ChartColumnBig,
+    ChartPie,
+    ChevronDown,
+    ChevronUp
+} from 'lucide-react';
+import { enumTypeOfChart } from '../../store/slices/visibilityOfModalSlice';
 
 export function AddChartButton() {
     const [isOpen, setIsOpen] = useState(false);
-    // const visible = useSelector((state: RootState) => state.visibility.visible);
-    // const dispatch = useDispatch<AppDispatch>();
 
     return (
         <div className={style.addChartContainer}>
-            <Label isOpen={isOpen} setIsOpen={setIsOpen} />
+            <p className={style.label} onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <ChevronUp /> : <ChevronDown />}
+                Adicionar novo gráfico
+            </p>
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -24,7 +30,28 @@ export function AddChartButton() {
                         transition={{ duration: 0.3 }}
                         style={{ overflow: "hidden" }}
                     >
-                        <Options />
+                        <div className={style.containerOptions}>
+                            <Option
+                                icon={<ChartLine />}
+                                label='Gráfico de linha'
+                                typeOfChart={enumTypeOfChart.line}
+                            />
+                            <Option
+                                icon={<ChartArea />}
+                                label='Gráfico de area'
+                                typeOfChart={enumTypeOfChart.area}
+                            />
+                            <Option
+                                icon={<ChartColumnBig />}
+                                label='Gráfico de barra'
+                                typeOfChart={enumTypeOfChart.bar}
+                            />
+                            <Option
+                                icon={<ChartPie />}
+                                label='Gráfico de pizza'
+                                typeOfChart={enumTypeOfChart.pine}
+                            />
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

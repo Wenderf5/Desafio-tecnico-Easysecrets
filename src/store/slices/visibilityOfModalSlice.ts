@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-enum typeOfChart {
+export enum enumTypeOfChart {
   line,
   area,
   pine,
@@ -8,12 +8,12 @@ enum typeOfChart {
 }
 
 interface visibilityOfModalInterface {
-  typeOfChart: typeOfChart;
+  typeOfChart: enumTypeOfChart;
   visible: boolean;
 }
 
 const initialState: visibilityOfModalInterface = {
-  typeOfChart: typeOfChart.line,
+  typeOfChart: enumTypeOfChart.line,
   visible: false,
 };
 
@@ -21,7 +21,7 @@ const visibilityOfModalSlice = createSlice({
   name: 'visibilityOfModal',
   initialState,
   reducers: {
-    open: (state, action: PayloadAction<typeOfChart>) => {
+    open: (state, action: PayloadAction<enumTypeOfChart>) => {
       state.typeOfChart = action.payload;
       state.visible = true;
     },
@@ -31,5 +31,5 @@ const visibilityOfModalSlice = createSlice({
   },
 });
 
-export const { open } = visibilityOfModalSlice.actions;
+export const { open, close } = visibilityOfModalSlice.actions;
 export default visibilityOfModalSlice.reducer;
