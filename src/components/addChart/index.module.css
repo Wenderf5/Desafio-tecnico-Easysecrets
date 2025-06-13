@@ -1,0 +1,10 @@
+.addChartContainer {
+    gap: 10px;
+    margin: 5px;
+    display: flex;
+    border-radius: 2px;
+    align-self: flex-start;
+    flex-direction: column;
+    padding: 10px 45px 10px 45px;
+    background-color: #52b4fa;
+}

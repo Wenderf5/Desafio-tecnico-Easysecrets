@@ -1,0 +1,9 @@
+.option{
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
