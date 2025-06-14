@@ -7,6 +7,7 @@ import { ChartLine } from "../../components/chartLine";
 
 export function Dashboard() {
     const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
+    const charts = useSelector((state: RootState) => state.charts);
 
     return (
         <>
@@ -16,7 +17,9 @@ export function Dashboard() {
                     <ModalToCreateCharts />
                 )}
                 <div className={style.containerOfCharts}>
-                    
+                    {charts.map((chart, index) => (
+                        <ChartLine key={index} chart={chart} />
+                    ))}
                 </div>
             </main>
         </>

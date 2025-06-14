@@ -4,6 +4,7 @@ import { AppDispatch } from '../../../../store';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toogle } from '../../../../store/slices/visibilityOfModalSlice';
+import { addChart, chartInterface, data } from '../../../../store/slices/chartsSlice';
 
 interface formData {
     chartName: string;
@@ -15,48 +16,50 @@ export function Form() {
     const [invalidJson, setInvalidJson] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm<formData>();
     const file = watch('file');
+
     useEffect(() => {
         setInvalidJson(false);
-    }, [file])
+    }, [file]);
 
-    const onSubmit = (data: formData) => {
-        const file = data.file[0];
-        const reader = new FileReader();
+    function parseFileToJson(file: FileList): Promise<data[]> {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
 
-        reader.onload = (event) => {
-            try {
-                const json: unknown = JSON.parse(event.target?.result as string);
+            reader.onload = (event) => {
+                try {
+                    const json = JSON.parse(event.target?.result as string);
 
-                if (!Array.isArray(json)) {
+                    if (!Array.isArray(json)) throw new Error("Formato do JSON inválido!");
+
+                    const isValid: boolean = json.every((item) =>
+                        typeof item === 'object' &&
+                        item !== null &&
+                        typeof item.produto === 'string' &&
+                        Array.isArray(item.vendas) &&
+                        item.vendas.every((v: any) =>
+                            typeof v.mes === 'string' &&
+                            typeof v.quantidade === 'number'
+                        ));
+
+                    if (!isValid) throw new Error("Formato do JSON inválido!");
+
+                    resolve(json);
+                } catch (error) {
                     setInvalidJson(true);
-                    return;
-                };
+                }
+            };
 
-                const isValid = json.every((item) =>
-                    typeof item === 'object' &&
-                    item !== null &&
-                    typeof (item as any).produto === 'string' &&
-                    Array.isArray((item as any).vendas) &&
-                    (item as any).vendas.every((v: any) =>
-                        typeof v.mes === 'string' &&
-                        typeof v.quantidade === 'number'
-                    )
-                );
+            reader.readAsText(file[0]);
+        });
+    }
 
-                if (!isValid) {
-                    setInvalidJson(true);
-                    return;
-                };
+    const onSubmit = async (data: formData) => {
+        const chartName = data.chartName;
+        const file = await parseFileToJson(data.file);
 
-                console.log(`Nome: ${file.name}`);
-                console.log("JSON válido:", json);
-            } catch (error) {
-                console.error("Erro ao validar JSON:", error);
-            }
-        };
-
-        reader.readAsText(file);
-    };
+        dispatch(addChart({ chartName: chartName, data: file }));
+        dispatch(toogle());
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={style.form}>

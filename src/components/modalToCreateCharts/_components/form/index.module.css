@@ -20,6 +20,8 @@
     padding: 10px 10px 10px 10px;
     border-radius: 3px;
     font-size: 1rem;
+    color: #CCCCCC;
+    border: 1px #2C3E50 solid;
 }
 
 .inputFile {
@@ -36,22 +38,22 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid #161616;
+    border: 1px solid #2C2F3A;
     padding: 5px 10px;
     border-radius: 3px;
 }
 
 .fileLabel {
     text-align: center;
-    background-color: #353535;
-    color: white;
+    background-color: #2C2F3A;
+    color: #FFFFFF;
     padding: 8px 16px;
     border-radius: 3px;
 }
 
 .fileName {
     text-align: center;
-    color: #1d1d1d;
+    color: #FFFFFF;
     font-size: 0.95rem;
 }
 
@@ -69,7 +71,7 @@
 
 .buttonCancel {
     border: none;
-    background-color: red;
+    background-color: #C0392B;
     color: white;
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
@@ -78,7 +80,7 @@
 
 .buttonCreate {
     border: none;
-    background-color: #52b4fa;
+    background-color: #3498DB;
     color: white;
     padding: 15px 40px 15px 40px;
     border-radius: 5px;
@@ -86,5 +88,5 @@
 }
 
 .error{
-    color: red;
+    color: #FF5E5E;
 }

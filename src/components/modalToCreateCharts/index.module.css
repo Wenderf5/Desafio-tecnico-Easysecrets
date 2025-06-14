@@ -16,5 +16,7 @@
     display: flex;
     border-radius: 10px;
     flex-direction: column;
-    background-color: white;
+    background-color: #1E1E2E;
+    color: #FFFFFF;
+    border: 2px rgba(52, 152, 219, 0.4) solid;
 }

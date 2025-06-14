@@ -4,6 +4,7 @@
     gap: 30px;
     padding: 5px;
     flex: 1;
+    background-color: #1E1E2E;
 }
 
 .containerOfCharts {
