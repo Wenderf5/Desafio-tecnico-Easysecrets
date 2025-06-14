@@ -1,0 +1,92 @@
+.form {
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputName {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputName label {
+    font-size: 1.2rem;
+}
+
+.inputName input[type='text'] {
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+    color: #CCCCCC;
+    border: 1px #2C3E50 solid;
+}
+
+.inputFile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputFileLabel {
+    font-size: 1.2rem;
+}
+
+.fileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #2C2F3A;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.fileLabel {
+    text-align: center;
+    background-color: #2C2F3A;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 3px;
+}
+
+.fileName {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+}
+
+.hiddenInputFile {
+    display: none;
+}
+
+.containerSubmit {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonCancel {
+    border: none;
+    background-color: #C0392B;
+    color: white;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.buttonCreate {
+    border: none;
+    background-color: #3498DB;
+    color: white;
+    padding: 15px 40px 15px 40px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.error{
+    color: #FF5E5E;
+}
