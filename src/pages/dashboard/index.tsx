@@ -19,8 +19,8 @@ export function Dashboard() {
                 )}
                 <div className={charts.length <= 0 ? style.containerOfChartsEmpty : style.containerOfCharts}>
                     {charts.length <= 0 ? <PlaceHolder /> :
-                        charts.map((chart, index) => (
-                            <ChartLine key={index} chart={chart} />
+                        charts.map((chart) => (
+                            <ChartLine key={chart.id} chart={chart} />
                         ))
                     }
                 </div>

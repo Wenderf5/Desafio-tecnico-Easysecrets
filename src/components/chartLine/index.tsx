@@ -29,7 +29,7 @@ export function ChartLine({ chart }: props) {
 
     return (
         <div className={style.containerOfChart}>
-            <Label label={chart.chartName} />
+            <Label chartId={chart.id} label={chart.chartName} />
             <ResponsiveContainer width={'100%'} height={200}>
                 <LineChart data={data} margin={{ left: -20 }}>
                     {chart.data.map((item, index) => (

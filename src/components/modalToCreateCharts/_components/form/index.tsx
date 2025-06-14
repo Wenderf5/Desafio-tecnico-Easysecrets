@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toogle } from '../../../../store/slices/visibilityOfModalSlice';
 import { addChart, data } from '../../../../store/slices/chartsSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 interface formData {
     chartName: string;
@@ -47,7 +48,7 @@ export function Form() {
                 } catch (error) {
                     setInvalidJson(true);
                 }
-            };
+            }
 
             reader.readAsText(file[0]);
         });
@@ -57,7 +58,7 @@ export function Form() {
         const chartName = data.chartName;
         const file = await parseFileToJson(data.file);
 
-        dispatch(addChart({ chartName: chartName, data: file }));
+        dispatch(addChart({id: uuidv4(), chartName: chartName, data: file }));
         dispatch(toogle());
     }
 
