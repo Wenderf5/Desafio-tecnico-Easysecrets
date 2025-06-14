@@ -4,6 +4,7 @@ import { ModalToCreateCharts } from "../../components/modalToCreateCharts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { ChartLine } from "../../components/chartLine";
+import { PlaceHolder } from "./_components/placeHoler";
 
 export function Dashboard() {
     const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
@@ -16,10 +17,12 @@ export function Dashboard() {
                 {visibilityOfModal && (
                     <ModalToCreateCharts />
                 )}
-                <div className={style.containerOfCharts}>
-                    {charts.map((chart, index) => (
-                        <ChartLine key={index} chart={chart} />
-                    ))}
+                <div className={charts.length <= 0 ? style.containerOfChartsEmpty : style.containerOfCharts}>
+                    {charts.length <= 0 ? <PlaceHolder /> :
+                        charts.map((chart, index) => (
+                            <ChartLine key={index} chart={chart} />
+                        ))
+                    }
                 </div>
             </main>
         </>
