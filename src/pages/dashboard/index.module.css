@@ -13,5 +13,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.containerOfChartsEmpty {
+    flex: 1;
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }

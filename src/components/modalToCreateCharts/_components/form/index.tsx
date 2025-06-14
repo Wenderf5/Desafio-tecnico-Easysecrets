@@ -4,7 +4,7 @@ import { AppDispatch } from '../../../../store';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toogle } from '../../../../store/slices/visibilityOfModalSlice';
-import { addChart, chartInterface, data } from '../../../../store/slices/chartsSlice';
+import { addChart, data } from '../../../../store/slices/chartsSlice';
 
 interface formData {
     chartName: string;
