@@ -1,9 +1,9 @@
 .main {
-    flex: 1;
-    gap: 30px;
-    padding: 5px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    padding: 5px;
+    flex: 1;
 }
 
 .containerOfCharts {

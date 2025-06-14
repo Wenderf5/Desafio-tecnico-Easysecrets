@@ -23,9 +23,9 @@ export function ChartLine() {
                 <LineChart data={data} margin={{ left: -20 }}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <Line type="monotone" dataKey="pv" stroke="green" />
-                    <CartesianGrid stroke="#262626" strokeDasharray="5 5" />
-                    <XAxis dataKey="name" stroke="#262626" />
-                    <YAxis stroke="#262626" />
+                    <CartesianGrid stroke={'black'} strokeDasharray={"5 5"} />
+                    <XAxis dataKey="name" stroke={'black'} />
+                    <YAxis stroke={'black'} />
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>

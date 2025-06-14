@@ -4,7 +4,59 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+}
+
+.inputName {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputName label {
+    font-size: 1.2rem;
+}
+
+.inputName input[type='text'] {
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+.inputFile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputFileLabel {
+    font-size: 1.2rem;
+}
+
+.fileWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #161616;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.fileLabel {
+    text-align: center;
+    background-color: #353535;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 3px;
+}
+
+.fileName {
+    text-align: center;
+    color: #1d1d1d;
+    font-size: 0.95rem;
+}
+
+.hiddenInputFile {
+    display: none;
 }
 
 .containerSubmit {
@@ -12,7 +64,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .buttonCancel {
@@ -31,4 +83,8 @@
     padding: 15px 40px 15px 40px;
     border-radius: 5px;
     font-size: 1.1rem;
+}
+
+.error{
+    color: red;
 }

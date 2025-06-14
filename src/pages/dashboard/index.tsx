@@ -4,7 +4,6 @@ import { ModalToCreateCharts } from "../../components/modalToCreateCharts";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { ChartLine } from "../../components/chartLine";
-import { ChartBar } from "../../components/chartBar";
 
 export function Dashboard() {
     const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
@@ -17,8 +16,7 @@ export function Dashboard() {
                     <ModalToCreateCharts />
                 )}
                 <div className={style.containerOfCharts}>
-                    <ChartLine />
-                    <ChartBar />
+                    
                 </div>
             </main>
         </>
