@@ -1,6 +1,6 @@
 import style from "./index.module.css";
 import { AddChartButton } from "../../components/addChartButton";
-import { ModalToCreateCharts } from "../../components/modalToCreateCharts";
+import { ModalToCreateChart } from "../../components/modalToCreateChart";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { ChartLine } from "../../components/chartLine";
@@ -8,18 +8,20 @@ import { PlaceHolder } from "./_components/placeHoler";
 import { FullScreenChart } from "../../components/fullScreenChart";
 
 export function Dashboard() {
-    const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
+    const modalToCreateChartIsVisible = useSelector((state: RootState) => state.modalToCreateChartIsVisible);
     const charts = useSelector((state: RootState) => state.charts);
-    const fullScreen = useSelector((state: RootState) => state.fullScreen);
+    const fullScreenIsVisible = useSelector((state: RootState) => state.fullScreen.visible);
 
     return (
         <>
             <main className={style.main}>
-                <AddChartButton />
-                {visibilityOfModal && (
-                    <ModalToCreateCharts />
+                {!fullScreenIsVisible && (
+                    charts.length > 0 && (<AddChartButton />)
                 )}
-                {!fullScreen.visible && (
+                {modalToCreateChartIsVisible && (
+                    <ModalToCreateChart />
+                )}
+                {!fullScreenIsVisible && (
                     <div className={charts.length <= 0 ? style.containerOfChartsEmpty : style.containerOfCharts}>
                         {charts.length <= 0 ? <PlaceHolder /> :
                             charts.map((chart) => (
@@ -28,7 +30,7 @@ export function Dashboard() {
                         }
                     </div>
                 )}
-                {fullScreen.visible && (
+                {fullScreenIsVisible && (
                     <FullScreenChart />
                 )}
             </main>

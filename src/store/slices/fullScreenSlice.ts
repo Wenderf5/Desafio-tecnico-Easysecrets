@@ -21,7 +21,7 @@ const fullScreenSlice = createSlice({
         setChart: (state, action: PayloadAction<chartInterface>) => {
             state.chart = action.payload;
         }
-    },
+    }
 });
 
 export const { toogle, setChart } = fullScreenSlice.actions;

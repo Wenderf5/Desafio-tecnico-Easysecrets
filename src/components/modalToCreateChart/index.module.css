@@ -1,10 +1,10 @@
 .overlay {
-    top: 0;
-    left: 0;
+    position: absolute;
     width: 100vw;
     height: 100vh;
+    top: 0;
+    left: 0;
     z-index: 999;
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,11 +14,10 @@
 .modal {
     width: 90%;
     display: flex;
-    border-radius: 10px;
     flex-direction: column;
     background-color: #1E1E2E;
-    color: #FFFFFF;
-    border: 2px rgba(0, 184, 217, 0.6) solid;
+    border: 2px #4d4d56 solid;
+    border-radius: 10px;
 }
 
 @media screen and (min-width: 450px) {
