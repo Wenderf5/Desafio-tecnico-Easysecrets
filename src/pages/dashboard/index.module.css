@@ -24,7 +24,7 @@
     gap: none;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
     .containerOfCharts {
         width: 100%;
         display: grid;

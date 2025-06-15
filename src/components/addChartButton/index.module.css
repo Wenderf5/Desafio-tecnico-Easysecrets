@@ -10,4 +10,19 @@
     padding: 10px 45px 10px 45px;
     border: none;
     cursor: pointer;
+    transition: 200ms;
+}
+
+.button:hover {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    font-size: 1rem;
+    color: white;
+    background-color: #306acd;
+    padding: 10px 45px 10px 45px;
+    border: none;
+    cursor: pointer;
 }
