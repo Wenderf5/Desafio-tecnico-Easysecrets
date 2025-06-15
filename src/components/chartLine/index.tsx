@@ -1,5 +1,13 @@
 import style from './index.module.css';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer
+} from 'recharts';
 import { Label } from './_components/label';
 import { chartInterface } from '../../store/slices/chartsSlice';
 import { RootState } from '../../store';
@@ -10,31 +18,37 @@ interface props {
 }
 
 export function ChartLine({ chart }: props) {
-    const fullScreen = useSelector((state: RootState) => state.fullScreen.visible);
+    const fullScreenIsVisible = useSelector((state: RootState) => state.fullScreen.visible);
+
     function generateColor(index: number): string {
         const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AA00FF', '#FF4081'];
         return colors[index % colors.length];
     }
 
-    const meses = new Set<string>();
-    chart.data.forEach(produto => {
-        produto.vendas.forEach(v => meses.add(v.mes));
-    });
-
-    const data: any[] = Array.from(meses).map(mes => {
-        const entry: any = { name: mes };
+    function loadChartData() {
+        const meses = new Set<string>();
         chart.data.forEach(produto => {
-            const venda = produto.vendas.find(v => v.mes === mes);
-            entry[produto.produto] = venda ? venda.quantidade : 0;
+            produto.vendas.forEach(v => meses.add(v.mes));
         });
-        return entry;
-    });
+
+        const data: any[] = Array.from(meses).map(mes => {
+            const entry: any = { name: mes };
+            chart.data.forEach(produto => {
+                const venda = produto.vendas.find(v => v.mes === mes);
+                entry[produto.produto] = venda ? venda.quantidade : 0;
+            });
+            return entry;
+        });
+        return data;
+    }
+
+    const dataOfChart = loadChartData();
 
     return (
-        <div className={fullScreen ? style.containerOfChartFullScreen : style.containerOfChart}>
-            <Label chart={chart} label={chart.chartName} />
-            <ResponsiveContainer aspect={fullScreen ? undefined : 2}>
-                <LineChart data={data} margin={{ left: -20 }}>
+        <div className={style.containerOfChart}>
+            <Label chart={chart} />
+            <ResponsiveContainer width={"100%"} aspect={fullScreenIsVisible ? 2.2 : 2}>
+                <LineChart data={dataOfChart} margin={{ left: -20 }}>
                     {chart.data.map((item, index) => (
                         <Line
                             key={index}

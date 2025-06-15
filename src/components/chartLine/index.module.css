@@ -1,53 +1,10 @@
 .containerOfChart {
     width: 100%;
-    gap: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 10px;
     border: 1px #3E3E55 solid;
-    padding: 2px 5px 2px 5px;
     background-color: #2A2A3C;
     border-radius: 5px;
-}
-
-.containerOfChartFullScreen {
-    position: absolute;
-    width: 98vh;
-    height: 90vw;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(90deg);
-}
-
-@media (orientation: landscape) {
-    .containerOfChartFullScreen {
-        position: absolute;
-        width: 98%;
-        height: 98%;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transform: none;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .containerOfChart {
-        width: 49%;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 1px #3E3E55 solid;
-        padding: 2px 5px 2px 5px;
-        background-color: #2A2A3C;
-        border-radius: 5px;
-    }
+    padding: 5px;
 }

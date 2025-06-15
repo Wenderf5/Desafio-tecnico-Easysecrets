@@ -3,11 +3,11 @@ import { useForm } from 'react-hook-form';
 import { AppDispatch } from '../../../../store';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { toogle } from '../../../../store/slices/visibilityOfModalSlice';
+import { toogle } from '../../../../store/slices/modalToCreateChartIsVisibleSlice';
 import { addChart, data } from '../../../../store/slices/chartsSlice';
 import { v4 as uuidv4 } from 'uuid';
 
-interface formData {
+interface formDataInterface {
     chartName: string;
     file: FileList;
 }
@@ -15,14 +15,19 @@ interface formData {
 export function Form() {
     const dispatch = useDispatch<AppDispatch>();
     const [invalidJson, setInvalidJson] = useState(false);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<formData>();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors }
+    } = useForm<formDataInterface>();
     const file = watch('file');
 
     useEffect(() => {
         setInvalidJson(false);
     }, [file]);
 
-    function parseFileToJson(file: FileList): Promise<data[]> {
+    function parseFileToJson(file: File): Promise<data[]> {
         return new Promise((resolve) => {
             const reader = new FileReader();
 
@@ -50,20 +55,20 @@ export function Form() {
                 }
             }
 
-            reader.readAsText(file[0]);
+            reader.readAsText(file);
         });
     }
 
-    const onSubmit = async (data: formData) => {
-        const chartName = data.chartName;
-        const file = await parseFileToJson(data.file);
+    const onSubmit = async (data: formDataInterface) => {
+        const { chartName, file } = data;
+        const json = await parseFileToJson(file[0]);
 
-        dispatch(addChart({id: uuidv4(), chartName: chartName, data: file }));
+        dispatch(addChart({ id: uuidv4(), chartName: chartName, data: json }));
         dispatch(toogle());
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+        <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.inputName}>
                 <label>Nome do gráfico:</label>
                 <input
@@ -71,31 +76,29 @@ export function Form() {
                     placeholder="Digite o nome do gráfico..."
                     {...register('chartName', { required: 'O nome do gráfico é obrigatório' })}
                 />
-                {errors.chartName && <p className={style.error}>{errors.chartName.message}</p>}
+                {errors.chartName && <p style={{ color: '#FF5E5E' }}>{errors.chartName.message}</p>}
             </div>
 
             <div className={style.inputFile}>
-                <label className={style.inputFileLabel}>Selecionar arquivo:</label>
+                <label>Selecionar arquivo:</label>
                 <div className={style.fileWrapper}>
-                    <label htmlFor="inputFile" className={style.fileLabel}>Escolher arquivo</label>
-                    <span className={style.fileName}>
+                    <label htmlFor="inputFile">Escolher arquivo</label>
+                    <span>
                         {file && file.length > 0 ? file[0].name : "nenhum arquivo selecionado"}
                     </span>
                     <input
                         id="inputFile"
                         type="file"
                         accept=".json"
-                        className={style.hiddenInputFile}
+                        style={{ display: 'none' }}
                         {...register('file', {
-                            required: 'O arquivo JSON é obrigatório',
-                            validate: (value) => value.length > 0 || 'Selecione um arquivo JSON'
+                            required: 'O arquivo JSON é obrigatório'
                         })}
                     />
                 </div>
-                {errors.file && <p className={style.error}>{errors.file.message}</p>}
-                {invalidJson && <p className={style.error}>Fomato do JSON invalido</p>}
+                {errors.file && <p style={{ color: '#FF5E5E' }}>{errors.file.message}</p>}
+                {invalidJson && <p style={{ color: '#FF5E5E' }}>Fomato do JSON invalido</p>}
             </div>
-
             <div className={style.containerSubmit}>
                 <button className={style.buttonCancel} type="button" onClick={() => dispatch(toogle())}>Cancelar</button>
                 <button className={style.buttonCreate} type="submit">Criar</button>
