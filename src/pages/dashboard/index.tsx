@@ -5,10 +5,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { ChartLine } from "../../components/chartLine";
 import { PlaceHolder } from "./_components/placeHoler";
+import { FullScreenChart } from "../../components/fullScreenChart";
 
 export function Dashboard() {
     const visibilityOfModal = useSelector((state: RootState) => state.visibilityOfModal.visible);
     const charts = useSelector((state: RootState) => state.charts);
+    const fullScreen = useSelector((state: RootState) => state.fullScreen);
 
     return (
         <>
@@ -24,6 +26,9 @@ export function Dashboard() {
                         ))
                     }
                 </div>
+                {fullScreen.visible && (
+                    <FullScreenChart />
+                )}
             </main>
         </>
     );
