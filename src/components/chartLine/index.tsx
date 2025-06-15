@@ -2,12 +2,15 @@ import style from './index.module.css';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Label } from './_components/label';
 import { chartInterface } from '../../store/slices/chartsSlice';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 interface props {
     chart: chartInterface
 }
 
 export function ChartLine({ chart }: props) {
+    const fullScreen = useSelector((state: RootState) => state.fullScreen.visible);
     function generateColor(index: number): string {
         const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AA00FF', '#FF4081'];
         return colors[index % colors.length];
@@ -28,9 +31,9 @@ export function ChartLine({ chart }: props) {
     });
 
     return (
-        <div className={style.containerOfChart}>
-            <Label chartId={chart.id} label={chart.chartName} />
-            <ResponsiveContainer width={'100%'} height={200}>
+        <div className={fullScreen ? style.containerOfChartFullScreen : style.containerOfChart}>
+            <Label chart={chart} label={chart.chartName} />
+            <ResponsiveContainer aspect={fullScreen ? undefined : 2}>
                 <LineChart data={data} margin={{ left: -20 }}>
                     {chart.data.map((item, index) => (
                         <Line
@@ -46,6 +49,6 @@ export function ChartLine({ chart }: props) {
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>
-        </div>
+        </div >
     )
 }

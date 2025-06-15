@@ -93,7 +93,7 @@ export function ChartBar() {
     return (
         <div className={style.containerOfChart}>
             <Label />
-            <ResponsiveContainer width={'100%'} height={200}>
+            <ResponsiveContainer width={"100%"} height={"100%"}>
                 <BarChart
                     data={data}
                     margin={{ left: -10 }}

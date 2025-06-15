@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import visibilityOfModalReducer from './slices/visibilityOfModalSlice';
 import chartsReducer from './slices/chartsSlice';
+import fullScreenReducer from './slices/fullScreenSlice';
 
 export const store = configureStore({
   reducer: {
     visibilityOfModal: visibilityOfModalReducer,
-    charts: chartsReducer
+    charts: chartsReducer,
+    fullScreen: fullScreenReducer
   },
 });
 
