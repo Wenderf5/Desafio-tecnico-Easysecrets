@@ -1,0 +1,12 @@
+.button {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4C8EFF;
+    padding: 10px 45px 10px 45px;
+    border: none;
+}

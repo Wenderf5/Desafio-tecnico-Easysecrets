@@ -1,0 +1,21 @@
+.label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #E0E0E0;
+}
+
+.options {
+    gap: 15px;
+    display: flex;
+}
+
+.options button {
+    border: none;
+    background: none;
+}
+
+.icon {
+    width: 19px;
+}
