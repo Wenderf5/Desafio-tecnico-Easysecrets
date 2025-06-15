@@ -18,11 +18,11 @@ export function Label({ chart }: props) {
             <h3>{chart.chartName}</h3>
             <div className={style.options}>
                 <button onClick={() => { dispatch(setChart(chart)); dispatch(toogle()); }}>
-                    {fullScreenIsVisible ? <Minimize2 className={style.icon} color='#E0E0E0' /> : <Maximize2 className={style.icon} color='#E0E0E0' />}
+                    {fullScreenIsVisible ? <Minimize2 className={style.minimizeIcon} /> : <Maximize2 className={style.minimizeIcon} />}
                 </button>
                 {!fullScreenIsVisible && (
                     <button onClick={() => dispatch(deleteChart(chart.id))}>
-                        <Trash2 className={style.icon} color='#E0E0E0' />
+                        <Trash2 className={style.deleteIcon} />
                     </button>
                 )}
             </div>
