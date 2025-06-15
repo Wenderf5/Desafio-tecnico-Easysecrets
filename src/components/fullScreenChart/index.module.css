@@ -1,13 +1,13 @@
-.overlay {
-    top: 0;
-    left: 0;
+.fullScreen {
+    position: absolute;
     width: 100vw;
     height: 100vh;
+    top: 0;
+    left: 0;
     z-index: 999;
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #1E1E2E;
-    padding: 5px 7px 7px 5px;
+    padding: 5px;
 }

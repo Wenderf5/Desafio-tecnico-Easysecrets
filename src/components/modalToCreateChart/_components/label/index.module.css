@@ -1,0 +1,8 @@
+.label {
+    padding: 10px 20px 10px 20px;
+    border-bottom: 2px #4d4d56 solid;
+}
+
+.label h1 {
+    color: white;
+}

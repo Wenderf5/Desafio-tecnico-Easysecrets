@@ -7,7 +7,7 @@ export function FullScreenChart() {
     const chart = useSelector((state: RootState) => state.fullScreen.chart);
 
     return (
-        <div className={style.overlay}>
+        <div className={style.fullScreen}>
             <ChartLine chart={chart!} />
         </div>
     );

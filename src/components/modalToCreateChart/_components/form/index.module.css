@@ -1,9 +1,8 @@
 .form {
-    flex: 1;
-    gap: 20px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    gap: 20px;
 }
 
 .inputName {
@@ -13,14 +12,12 @@
 }
 
 .inputName label {
-    font-size: 1.2rem;
+    color: white;
 }
 
 .inputName input[type='text'] {
     padding: 10px 10px 10px 10px;
     border-radius: 3px;
-    font-size: 1rem;
-    color: #CCCCCC;
     border: 1px #2C3E50 solid;
 }
 
@@ -30,40 +27,34 @@
     gap: 5px;
 }
 
-.inputFileLabel {
-    font-size: 1.2rem;
+.inputFile label {
+    color: white;
 }
 
-.fileWrapper {
+.fileWrapper  {
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1px solid #2C2F3A;
+    border: 2px solid #2C2F3A;
     padding: 5px 10px;
     border-radius: 3px;
 }
 
-.fileLabel {
+.fileWrapper label {
     text-align: center;
     background-color: #2C2F3A;
     color: #FFFFFF;
     padding: 8px 16px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
-.fileName {
+.fileWrapper span {
     text-align: center;
     color: #FFFFFF;
-    font-size: 0.95rem;
-}
-
-.hiddenInputFile {
-    display: none;
 }
 
 .containerSubmit {
-    margin-top: auto;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -76,7 +67,7 @@
     color: white;
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
-    font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .buttonCreate {
@@ -85,9 +76,5 @@
     color: white;
     padding: 15px 40px 15px 40px;
     border-radius: 5px;
-    font-size: 1.1rem;
-}
-
-.error{
-    color: #FF5E5E;
+    cursor: pointer;
 }
