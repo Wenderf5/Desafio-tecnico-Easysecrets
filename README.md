@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# Desafio técnico - Easysecrets
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+A aplicação funciona de forma simples, você tem um dashboard onde pode ter varios gráficos. Incialmente não há
+nehum gráfico, para adicionar um você precisa clicar no botão "Adcicionar novo gráfico", um modal com um formulário sera aberto e nele
+você pode dar um nome para o gráfico, como por exemplo "Vendas dos ultimos 6 mesês", depois é necessário um arquivo '.json' com os dados das vendas para criar o gráfico,
+o arquivo '.json' deve ter um formato especifico que vou deixar abaixo da seção "Estrutura de Pastas" aqui no readme, o arquivo "vendas.json" fornecido
+no desafio já está nesse formato.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias usadas
 
-## Expanding the ESLint configuration
+1. React (Biblioteca javaScript para desenvolvimento front-end).
+2. TypeScript (Linguagem de programação).
+3. Recharts (Biblioteca de gráficos).
+4. Redux (Gerenciamento de stado).
+5. React-hook-form (Criação de formularios).
+6. lucide-react (Biblioteca de icones).
+7. React-router (Gerenciamento de rotas no react).
+8. uuid (Gerar UUID).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estrutura de Pastas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- `src/` (Código fonte).
+- `src/pages` (Contém as páginas da aplicação).
+- `src/componentes` (Componentes globais da aplicação).
+- `src/assets` (Contém imagens e icones do projeto).
+- `src/routes` (Contém as rotas da aplicação).
+- `src/store` (Contém os componentes do redux, como o 'index.ts' que é responsavel por definir a store do redux).
+- `src/store/slices` (Contém as fatias/stados do redux).
+- `_componentes` (Patas como essa contém componentes exclusivos).
+
+## Formato do JSON
+
+```typescript
+interface data {
+  produto: string;
+  vendas: { mes: string, quantidade: number }[]
+}[]
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instruções para rodar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone o repository.
+2. Entre na pasta raiz e rode o comando `npm install`.
+3. Ainda na pasta raiz rode o comando `npm run dev`.
+4. Entre no navegador e pesquise por "http://localhost:5173"
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+
