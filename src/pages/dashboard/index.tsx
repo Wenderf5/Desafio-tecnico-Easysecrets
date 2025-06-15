@@ -19,13 +19,15 @@ export function Dashboard() {
                 {visibilityOfModal && (
                     <ModalToCreateCharts />
                 )}
-                <div className={charts.length <= 0 ? style.containerOfChartsEmpty : style.containerOfCharts}>
-                    {charts.length <= 0 ? <PlaceHolder /> :
-                        charts.map((chart) => (
-                            <ChartLine key={chart.id} chart={chart} />
-                        ))
-                    }
-                </div>
+                {!fullScreen.visible && (
+                    <div className={charts.length <= 0 ? style.containerOfChartsEmpty : style.containerOfCharts}>
+                        {charts.length <= 0 ? <PlaceHolder /> :
+                            charts.map((chart) => (
+                                <ChartLine key={chart.id} chart={chart} />
+                            ))
+                        }
+                    </div>
+                )}
                 {fullScreen.visible && (
                     <FullScreenChart />
                 )}

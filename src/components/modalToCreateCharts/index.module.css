@@ -20,3 +20,15 @@
     color: #FFFFFF;
     border: 2px rgba(0, 184, 217, 0.6) solid;
 }
+
+@media screen and (min-width: 450px) {
+    .modal {
+        width: auto;
+        display: flex;
+        border-radius: 10px;
+        flex-direction: column;
+        background-color: #1E1E2E;
+        color: #FFFFFF;
+        border: 2px rgba(0, 184, 217, 0.6) solid;
+    }
+}
