@@ -31,7 +31,7 @@
     color: white;
 }
 
-.fileWrapper  {
+.fileWrapper {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -43,6 +43,16 @@
 .fileWrapper label {
     text-align: center;
     background-color: #2C2F3A;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.fileWrapper label:hover {
+    text-align: center;
+    background-color: #22242d;
     color: #FFFFFF;
     padding: 8px 16px;
     border-radius: 3px;
@@ -68,11 +78,31 @@
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 200ms;
+}
+
+.buttonCancel:hover {
+    border: none;
+    background-color: #7c2218;
+    color: white;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .buttonCreate {
     border: none;
     background-color: #3498DB;
+    color: white;
+    padding: 15px 40px 15px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.buttonCreate:hover {
+    border: none;
+    background-color: #2376ad;
     color: white;
     padding: 15px 40px 15px 40px;
     border-radius: 5px;

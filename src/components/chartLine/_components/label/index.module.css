@@ -16,7 +16,28 @@
     background: none;
 }
 
-.icon {
+.minimizeIcon {
     width: 19px;
     cursor: pointer;
+    transition: 200ms;
+    color: #E0E0E0;
+}
+
+.minimizeIcon:hover {
+    width: 19px;
+    cursor: pointer;
+    color: #03ab00;
+}
+
+.deleteIcon {
+    width: 19px;
+    cursor: pointer;
+    transition: 200ms;
+    color: #E0E0E0;
+}
+
+.deleteIcon:hover {
+    width: 19px;
+    cursor: pointer;
+    color: #C0392B;
 }
