@@ -1,6 +1,6 @@
 import style from './index.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Expand, Trash2, Maximize2, Minimize2 } from 'lucide-react';
+import { Trash2, Maximize2, Minimize2 } from 'lucide-react';
 import { AppDispatch, RootState } from '../../../../store';
 import { chartInterface, deleteChart } from '../../../../store/slices/chartsSlice';
 import { setChart, toogle } from '../../../../store/slices/fullScreenSlice';
